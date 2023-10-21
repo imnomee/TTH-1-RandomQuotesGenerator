@@ -100,15 +100,19 @@ function printQuote(){
   const main = quote.quote;
   const auth = quote.author;
   let cite = ''
-  if (quote.citation) {cite= quote.citation};
+  if (quote.citation) {
+    cite= `<span class="citation">${quote.citation}</span>`
+  };
   let year = ''
-  if (quote.year) {year= quote.year};
+  if (quote.year) {
+    year= `<span class="year">${quote.year}</span>`
+  };
   console.log(quote.quote);
   console.log(quote.author);
   html += `
   <div id="quote-box" class="quote-box">
     <p class="quote">${main}</p>
-    <p class="source">${auth}<span class="citation">${cite}</span><span class="year">${year}</span></p>
+    <p class="source">${auth}${cite}${year}</p>
   </div>`
   container.innerHTML = html;
 }
